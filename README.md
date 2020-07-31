@@ -14,5 +14,5 @@
   <li>I can send the get request through a web-browser getting transactions:</li>
   <br>
   <img src="images/transactions.JPG">
-  <li>The same get reqeust is being sent to </li>
+  <li>The same get request is being sent by the Company B.</li>
 </ul>
