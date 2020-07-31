@@ -11,6 +11,7 @@
 </ol>
 <h3>Demo</h3>
 <ul>
-  <li>...</li>
+  <li>I can send the get request through a web-browser getting transactions:</li>
+  <img src="images/transactions.JPG">
   <li>...</li>
 </ul>
