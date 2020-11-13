@@ -1,4 +1,4 @@
-	<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 
 <html>
 	<head>
@@ -12,7 +12,7 @@
 		<!-- Header -->
 			<section id="header">
 				<header>
-					<span class="image avatar"><a href="https://arturskrzeta.github.io/"><img src="images/avatar.png" alt="" style="margin-bottom:0px"/></a></span>
+					<span class="image avatar"><a href="https://arturskrzeta.github.io/"><img src="images/avatar.png" alt="" style="margin-bottom:0px;"/></a></span>
 					<h1 id="logo"><a href="https://arturskrzeta.github.io/">Artur Skrzeta</a></h1>
 					<p>Data Analyst<br />
 					+4 years experience</p>
@@ -46,44 +46,9 @@
 							<section id="one">
 								<div class="container">
 									<header class="major">
-										<h2>Decision Tree as Supervised Learning</h2>
+										<h2>Handling Data in Steps in Data Pipelines</h2>
 										<h3>Intro</h3>
-
-										<h5>Datasets:</h5>
-										<ul>
-											<li>Data consists of samples.</li>
-											<li>Each sample is a collection of features.</li>
-											<li>Because of kind of features, the sample can be labeled with defined category:<br>
-												<code>sample_1: ['feature_1', 'feature_2', 'feature_3', 'feature_4']</code><br>
-												<code>sample_2: ['feature_5', 'feature_6', 'feature_7', 'feature_8']</code><br>
-												<code>labels: ['label_1','label_2']</code><br>
-												<code>sample_1 can be labeled with label_1</code><br>
-												<code>sample_2 can be labeled with label_2</code>
-											</li>
-										</ul>
-
-										<h5>Algorithm:</h5>
-										<ul>
-											<li>Decision Tree starts with the root that reporesents all samples already labeled with two different categories.</li>
-										  <li>On each node of decision tree, there is an <b>entropy</b> being calculated.</li>
-											<li>Entropy is the measure of randomness in a group of samples:
-												<br>
-												- the lower entropy, the lower uncertainity in a group of samples,<br>
-												- when group of samples is uniform (all samples can be classified by the same label) there is no randomness -> entropy is very low,<br>
-												- when there is 50/50 randomness (50% of samples are labeled as I. and second 50% of samples are labeled as II.) -> entropy equals 1,<br>
-												- the lower entropy in a group of samples, the higher information gain from it.
-											</li>
-											<li>We want to gain as much information as possible from each node (group of samples) in decision tree.</li>
-											<li>This is possible by keeping nodes with the lowest entropy from the beginning of a tree all the way down to leaves (last nodes where branch ends).</li>
-											<li>We can reach the possible lowest entropy node by node coming up with the best split value (when text feature) or the best split threshold (when numeric feature).</li>
-										</ul>
-
-										<h5>Model Learning:</h5>
-										<ul>
-											<li>When new sample comes in, then we start from the root node traversing tree.</li>
-											<li>Samples go through a set of conditions(split values) untill the leaf node where we can assign a label to the sample.</li>
-										</ul>
-
+										<p>Data Pipeline is a series of following after each other steps of data processing. Within a series, each step delivers an output that is the input to the next step.</p>
 									</header>
 								</div>
 							</section>
@@ -94,9 +59,9 @@
 									<h3>Features</h3>
 									<p>App includes following features:</p>
 									<ul class="feature-icons">
-										<li class="icon solid fa-check">DecisionTreeClassifier</li>
-										<li class="icon solid fa-check">SkLearn</li>
-										<li class="icon solid fa-check">Pandas</li>
+										<li class="icon solid fa-check">RESTful API</li>
+										<li class="icon solid fa-check">Flask</li>
+										<li class="icon solid fa-check">SQLite</li>
 									</ul>
 								</div>
 							</section>
@@ -105,117 +70,35 @@
 							<section id="three">
 								<div class="container">
 									<h3>Demo</h3>
-									<h5>Dataset:</h5>
-									<ul>
-										<li>Data set is a collections of candidate's skills.</li>
-										<li>There are 4 features in each sample that impact the final decision of candidate hiring (this example is completely random):
-											<br>
-											- first feature: <b>education</b>,<br>
-											- second feature: <b>english</b>,<br>
-											- third feature: <b>experience</b>,<br>
-											- forth feautre: <b>interview</b>.
-										</li>
-										<li>Depending on values of each featre decision tree returns yes or no.</li>
-									</ul>
-
-									<h5>Features:</h5>
-									<ul>
-										<li>For <b>'education'</b> feature there are values:
-											<br>&nbsp&nbsp&nbsp
-											<code>{'Bachelor': 0, 'Master': 1, 'Student': 2, 'Technician': 3}</code>
-										</li>
-										<li>For <b>'english'</b> feature there are values:
-											<br>&nbsp&nbsp&nbsp
-											<code>{'Advanced': 0, 'Intermediate': 1, 'Native': 2}</code>
-										</li>
-										<li>For <b>'experience'</b> feature there are values:
-											<br>&nbsp&nbsp&nbsp
-											<code>{'1 - 2 years': 0, '1 year': 1, 'No experience': 2, 'above 2 years': 3}</code>
-										</li>
-										<li>For <b>'interview'</b> feature there are values:
-											<br>&nbsp&nbsp&nbsp
-											<code>{'excellent': 0, 'good': 1, 'neutral': 2, 'under expectation': 3}</code>
-										</li>
-										<li>Above curly braces are so-called dictionaries which pairs feature value with a number.</li>
-										<li>The numbers are very important because we need to do the convertions from text values into numeric:
-											<br>
-											- 'Bachelor' in education colum will be replaced with 0,<br>
-											- 'Advanced' in english colum wil be replaced with 0,<br>
-											- 'above 2 years' in experience column will be replaced with 3 etc.
-										</li>
-									</ul>
-
-									<h5>Raw Data:</h5>
-									<!-- #500 -->
-									<img src="images/raw.JPG">
-									<ul>
-										<li>Notice, at the end of each row we can see decision already made.</li>
-										<li>This is the historical records of candidates in the past.</li>
-										<li>Historical dataset shows how decisions were made based on different candidates with different set of features.</li>
-										<li>Having view on historical decisions we can learn model how to make future decison for next candidates.</li>
-										<li>Model receiving new candidate's features makes a decision relying on what it learnt from past which is recorded in the data input above.</li>
-									</ul>
-
-									<h5>Converted Data:</h5>
-									<!-- 390 -->
-									<img src="images/converted.JPG">
-									<ul>
-										<li>Text values are replaced with corresponding numeric values due to dicitonaries above.</li>
-										<li>This conversion is necessary for machine learning which accepts only numbers,</li>
-									</ul>
-
-									<h5>Making Decision</h5>
-									<ul>
-										<li>Providing new candidate's future like below:
-											<br>&nbsp&nbsp&nbsp
-											<code>new_data = [</code>
-											<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-											<code>u_education['Student'],</code>
-											<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-												<code>u_english['Intermediate'],</code>
-												<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-												<code>u_experience['1 year'],</code>
-												<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-												<code>u_interview['neutral']</code>
-												<br>&nbsp&nbsp&nbsp
-											<code>]</code>
-										</li>
-										<li>We get the decision from the tree:
-											<br>&nbsp&nbsp&nbsp
-											<code>['No']</code>
-										</li>
-									</ul>
-
-									<h5>Decision Tree graph:</h5>
-									<img src="images/graph.JPG" width="780">
-									<ul>
-										<li>Each tree node proivdes set of information.</li>
-										<li>In the root, we can see that candindates with english level below 1.5 go to left node, rest goes to right node.</li>
-										<li>Decision Tree Classifier takes Gini Impurity for entropy calculation by default.</li>
-										<li>We can check also the sample size which is in our example number of candidates.</li>
-										<li>By value=[14,16] we can see already that there are 14 yeses and 16 noes.</li>
-									</ul>
-
+									<h5>Workflow:</h5>
+									<ol>
+										<li>Company A generates and streams data to a web server.</li>
+										<li>At the same time Company B requests a web server for a data stream with GET method.</li>
+										<li>Company B handles the inflowing data with programmed business logic.</li>
+										<li>Company B has database on its side and feeds it with inflowing data.</li>
+									</ol>
+									<img src="images/pipeline.JPG" width="780">
+									<p>I can send the GET request through a web-browser as a client getting data from web server:</p>
+									<img src="images/transactions.JPG" width="780">
+									<p>The same get request is being sent by the Company B.</p>
 								</div>
 							</section>
-
 
 						<!-- Four -->
 							<section id="four">
 								<div class="container">
 									<h3>Setup</h3>
-									<p>Script requires libraries installation:</p>
-										<code>pip install pandas</code><br>
-										<code>pip install sklearn</code><br>
-										<code>pip install pydotplus</code><br>
-										<code>pip install ipython</code>
+									<p>Python libraries installation required:</p>
+									<code>pip install flask</code><br>
+									<code>pip install sqlite3</code><br>
 								</div>
 							</section>
 
+						<!-- Five -->
 							<section id="five">
 								<div class="container">
 									<h3>Source Code</h3>
-									<p>You can view the source code: <a href="https://github.com/ArturSkrzeta/Decision-Tree-as-Supervised-Learning/tree/master/project">HERE</a></p>
+									<p>You can view the source code: <a href="https://github.com/ArturSkrzeta/Data-Pipeline-with-Flask-and-SQLite-in-Python/tree/master/project">HERE</a></p>
 									<p>&nbsp</p>
 								</div>
 							</section>
